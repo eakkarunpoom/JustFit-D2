@@ -1,36 +1,42 @@
+import "./Header.css";
+import LoginBtn from "../LoginBtn/LoginBtn";
+import SignUpBtn from "../SingUpBtn/SignUpBtn";
+
 const Header = () => {
   return (
-    <div className="container">
-      <header className="d-flex justify-content-center py-3">
-        <ul className="nav nav-pills">
-          <li className="nav-item">
-            <a href="#" className="nav-link active" aria-current="page">
-              Home
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              Features
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              Pricing
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              FAQs
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              About
-            </a>
-          </li>
-        </ul>
-      </header>
-    </div>
+    <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
+      <div className="col-md-3 mb-2 mb-md-0">
+        <a
+          href="/"
+          className="d-inline-flex link-body-emphasis text-decoration-none logo"
+        >
+          Just<span>Fit</span>
+        </a>
+      </div>
+
+      <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li>
+          <a href="#" className="nav-link px-2">
+            Workout Videos
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link px-2">
+            Recipes
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link px-2">
+            Dash board
+          </a>
+        </li>
+      </ul>
+
+      <div className="col-md-3 text-end">
+        <LoginBtn />
+        <SignUpBtn />
+      </div>
+    </header>
   );
 };
 
