@@ -19,3 +19,7 @@ header {
   color: var(--light);
   font-weight: bold;
 }
+/* hover */
+a:hover {
+  color: #ff4878 !important;
+}

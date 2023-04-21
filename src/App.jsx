@@ -2,14 +2,10 @@ import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 // components
-import Header from "./component/Header/Header";
+import Layout from "./component/Layout";
 
 function App() {
-  return (
-    <div className="App">
-      <Header />
-    </div>
-  );
+  return <Layout></Layout>;
 }
 
 export default App;
