@@ -1,10 +1,10 @@
-.sign-in {
+.sign-up {
   background-color: var(--pink);
   color: var(--light);
   margin-left: 15px;
 }
 
-.sign-in {
+.sign-up {
   background-size: 300% 100%;
   moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -12,7 +12,7 @@
   transition: all 0.4s ease-in-out;
 }
 
-.sign-in:hover {
+.sign-up:hover {
   background-position: 100% 0;
   moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -20,7 +20,7 @@
   transition: all 0.4s ease-in-out;
 }
 
-.sign-in {
+.sign-up {
   background-image: linear-gradient(
     to right,
     #eb3941,

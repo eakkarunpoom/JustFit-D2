@@ -6,6 +6,10 @@
   font-weight: bold;
 }
 
+.login {
+  background-color: aliceblue;
+}
+
 .login:hover {
   background-color: rgb(177, 177, 177);
   background-position: 100% 0;

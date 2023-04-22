@@ -3,9 +3,9 @@ import "./LoginBtn.css";
 
 function LoginBtn() {
   return (
-    <button type="button" className="botton login">
+    <a className="btn botton login" href="/Login">
       Login
-    </button>
+    </a>
   );
 }
 

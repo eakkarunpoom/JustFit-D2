@@ -5,7 +5,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import Layout from "./component/Layout";
 
 function App() {
-  return <Layout></Layout>;
+  return (
+    <Layout>
+      <div>Home</div>
+    </Layout>
+  );
 }
 
 export default App;

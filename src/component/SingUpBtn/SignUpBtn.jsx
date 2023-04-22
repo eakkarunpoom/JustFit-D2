@@ -3,9 +3,9 @@ import "./SignUpBtn.css";
 
 function SignUpBtn() {
   return (
-    <button type="button" className="botton sign-in">
+    <a className="btn botton sign-up" href="/SignUp">
       Joint for free
-    </button>
+    </a>
   );
 }
 

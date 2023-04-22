@@ -16,17 +16,17 @@ const Header = () => {
 
       <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="#" className="nav-link px-2">
+          <a href="/WorkOut" className="nav-link px-2">
             Workout Videos
           </a>
         </li>
         <li>
-          <a href="#" className="nav-link px-2">
+          <a href="/Recipes" className="nav-link px-2">
             Recipes
           </a>
         </li>
         <li>
-          <a href="#" className="nav-link px-2">
+          <a href="/DashBoard" className="nav-link px-2">
             Dash board
           </a>
         </li>
