@@ -3,11 +3,12 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 // components
 import Layout from "./component/Layout";
+import ImageSlider from "./component/Carousel/Carousel";
 
 function App() {
   return (
     <Layout>
-      <div>Home</div>
+      <ImageSlider />
     </Layout>
   );
 }
