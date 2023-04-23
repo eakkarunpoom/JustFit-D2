@@ -10,5 +10,14 @@
 body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.home {
   background-color: var(--main);
+}
+
+.workOut {
+  background-color: #ff4878;
 }
