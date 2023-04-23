@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { content1, content2 } from "./assets/index.js";
+import { content1, content2, user } from "./assets/index.js";
 // components
 import Layout from "./component/Layout";
 import ImageSlider from "./component/Carousel/Carousel";
@@ -71,6 +71,20 @@ function App() {
               loading="lazy"
             />
           </div>
+        </div>
+      </div>
+      {/* review */}
+      <div className="px-4 py-5 bgp review">
+        <h1 className="display-5 fw-bold px-lg-2 text-center">
+          “I've been using JustFit for a month and <br /> have already achieved
+          my fitness goals.
+          <br /> Highly recommend!”
+        </h1>
+        <div className="review-info">
+          <span>
+            <img src={user} />
+          </span>
+          <h3>Teresa Dunne</h3>
         </div>
       </div>
     </Layout>
