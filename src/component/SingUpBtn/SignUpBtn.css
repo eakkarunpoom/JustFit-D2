@@ -30,3 +30,8 @@
   );
   box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
 }
+
+.secondary {
+  font-size: 1.5rem;
+  width: 50%;
+}

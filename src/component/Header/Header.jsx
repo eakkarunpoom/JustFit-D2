@@ -34,7 +34,7 @@ const Header = () => {
 
       <div className="col-md-3 text-end">
         <LoginBtn />
-        <SignUpBtn />
+        <SignUpBtn variant="primary" />
       </div>
     </header>
   );
