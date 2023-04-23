@@ -4,7 +4,7 @@ import SignUpBtn from "../SingUpBtn/SignUpBtn";
 
 const Header = () => {
   return (
-    <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
+    <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom sticky-top">
       <div className="col-md-3 mb-2 mb-md-0">
         <a
           href="/"
