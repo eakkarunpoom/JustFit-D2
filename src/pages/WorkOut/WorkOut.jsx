@@ -4,9 +4,7 @@ import Layout from "../../component/Layout";
 function WorkOut() {
   return (
     <Layout>
-      <div className="workOut">
-        <div>WorkOut</div>
-      </div>
+      <div>WorkOut</div>
     </Layout>
   );
 }

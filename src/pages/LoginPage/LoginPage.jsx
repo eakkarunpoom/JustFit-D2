@@ -56,6 +56,9 @@ function LoginPage() {
             Continue with Google
           </button>
         </form>
+        <p className="text-center mt-4">
+          Don’t have an account? <a href="">Sign up</a>
+        </p>
       </main>
     </Layout>
   );
