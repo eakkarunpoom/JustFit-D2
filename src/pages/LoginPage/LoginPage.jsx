@@ -57,7 +57,7 @@ function LoginPage() {
           </button>
         </form>
         <p className="text-center mt-4">
-          Don’t have an account? <a href="">Sign up</a>
+          Don’t have an account? <a href="/signup">Sign up</a>
         </p>
       </main>
     </Layout>
