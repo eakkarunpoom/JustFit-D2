@@ -24,7 +24,7 @@ function Random() {
   };
 
   return (
-    <div>
+    <div className="wrapper">
       <h3 className="title">Dish of the day</h3>
 
       <Splide
@@ -33,21 +33,22 @@ function Random() {
           arrows: false,
           pagination: false,
           drag: "free",
-          gap: "5rem",
+          gap: "4rem",
         }}
       >
-        {random.map((recipe) => {
-          return (
-            <SplideSlide key={recipe.id}>
-              <div className="card">
-                <Link to={"/Recipes/" + recipe.id}>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <h3>{recipe.title}</h3>
-                </Link>
-              </div>
-            </SplideSlide>
-          );
-        })}
+        {random &&
+          random.map((recipe) => {
+            return (
+              <SplideSlide key={recipe.id}>
+                <div className="card">
+                  <Link to={"/Recipes/" + recipe.id}>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <h4>{recipe.title}</h4>
+                  </Link>
+                </div>
+              </SplideSlide>
+            );
+          })}
       </Splide>
     </div>
   );

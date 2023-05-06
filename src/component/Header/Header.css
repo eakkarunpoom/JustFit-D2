@@ -19,7 +19,3 @@ header {
   color: var(--light);
   font-weight: bold;
 }
-/* hover */
-a:hover {
-  background-color: #f3effe !important;
-}
