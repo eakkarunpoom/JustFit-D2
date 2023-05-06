@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from "react-router-dom";
+import "./Random.css";
 
 function Random() {
   const [random, setRandom] = useState([]);
@@ -13,7 +15,7 @@ function Random() {
     const api = await fetch(
       `https://api.spoonacular.com/recipes/random?apiKey=${
         import.meta.env.VITE_APP_API_KEY
-      }&number=3`
+      }&number=9`
     );
     const data = await api.json();
     localStorage.setItem("random", JSON.stringify(data.recipes));
@@ -22,50 +24,31 @@ function Random() {
   };
 
   return (
-    <div className="contain">
-      <div>
-        <h2>Dish of the day</h2>
-        {random.map((recipe, index) => (
-          <div
-            className={`card mb-3 ${index === 0 ? "col-md-8" : "col-md-4"}`}
-            key={recipe.id}
-            style={{ maxWidth: "540px" }}
-          >
-            <div className="row g-0">
-              <div className="col-md-4">
-                <img
-                  src={recipe.image}
-                  className="img-fluid rounded-start"
-                  alt={recipe.title}
-                />
+    <div>
+      <h3 className="title">Dish of the day</h3>
+
+      <Splide
+        options={{
+          perPage: 3,
+          arrows: false,
+          pagination: false,
+          drag: "free",
+          gap: "5rem",
+        }}
+      >
+        {random.map((recipe) => {
+          return (
+            <SplideSlide key={recipe.id}>
+              <div className="card">
+                <Link to={"/Recipes/" + recipe.id}>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <h3>{recipe.title}</h3>
+                </Link>
               </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">{recipe.title}</h5>
-                  <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                  <motion.a
-                    className="btn botton sign-up primary"
-                    href="#"
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 17,
-                    }}
-                  >
-                    View Recipe
-                  </motion.a>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            </SplideSlide>
+          );
+        })}
+      </Splide>
     </div>
   );
 }
