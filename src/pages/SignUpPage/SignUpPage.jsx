@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../../component/Layout";
+import Layout from "../../component/Layout/Layout";
 import Helmet from "react-helmet";
 
 function SignUpPage() {
