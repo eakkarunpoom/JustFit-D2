@@ -4,21 +4,13 @@
   margin-left: 15px;
 }
 
-.sign-up {
+/* .sign-up {
   background-size: 300% 100%;
   moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-}
-
-.sign-up:hover {
-  background-position: 100% 0;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
+} */
 
 .sign-up {
   background-image: linear-gradient(
