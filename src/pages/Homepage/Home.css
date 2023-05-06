@@ -1,0 +1,153 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.homepage {
+  background-color: #6F36BC;
+}
+
+.invite {
+  height: 340px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.title-invite {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sub-title-invite {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.btn-join-invite {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.btn-join-invite .signup {
+  background-color: #FF4878;
+  color:white;
+  font-weight: bold;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 50px;
+}
+
+.content {
+  height: 1400;
+  background-color: #6F36BC;
+}
+
+.row {
+  align-items: center;
+}
+
+.top-content {
+  padding: 5rem 0;
+}
+
+.text-content {
+  display: inline;
+}
+
+
+.image-content {
+  width: 560px;
+  height: 560px;
+  padding: 16px 16px;
+}
+
+.image-content img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title-content {
+  display: flex;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.sub-title-content {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: lighter;
+}
+
+.achrived {
+  background-color: #35174D;
+  color: white;
+  padding: 16px 16px;
+}
+
+.title-achrived {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.user-achrived {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-user {
+  width: 100px;
+  height: 100px;
+  margin-right: 16px;
+}
+
+.image-user img {
+  width: 100%;
+  height: 100%;
+  border-radius: 80px;
+  object-fit: cover;
+}
+
+.name-user {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer {
+  color: white;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #35174D;
+}
+
+
+@media (max-width: 768px) {
+  .title-achrived {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  .achrived {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .title-content {
+    justify-content: center;
+  }
+}

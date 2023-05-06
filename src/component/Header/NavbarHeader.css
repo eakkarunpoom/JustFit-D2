@@ -1,0 +1,77 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #6F36BC;
+  font-size: 16px;
+  position: sticky !important;
+  top:0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.btn-join {
+  display: flex;
+  margin-left: auto;
+}
+
+.btn-join button {
+  font-size: 1rem;
+  padding: 9px 16px;
+  border-radius: 50px;
+}
+
+.btn-join .login {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-join .signup {
+  background-color: #FF4878;
+  color:white;
+  font-weight: bold;
+  border: none;
+  padding: 9px 20px;
+}
+
+button:hover {
+  transform: scale(1.1);
+  text-shadow: 1px 1px #ccc;
+}
+
+.menu-bar {
+  margin-left: auto;
+  display: flex;
+}
+
+.menu-bar .nav-link {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.menu-bar .nav-link:hover {
+  color: #FF4878;
+  text-shadow: 1px 1px #ccc;
+  transform: scale(1.1);
+}
+
+.logo a{
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+.logo span {
+  color: #FF4878;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  text-shadow: 1px 1px #ccc;
+}

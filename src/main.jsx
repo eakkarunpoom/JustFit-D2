@@ -1,43 +1,39 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.css";
-import dotenv from "dotenv";
-// component
-import WorkOut from "./pages/WorkOut/WorkOut";
-import Recipes from "./pages/Recipes/Recipes";
-import DashBoardPage from "./pages/DashBoardPage/DashBoardPage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import SignUpPage from "./pages/SignUpPage/SignUpPage";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import Home from '../src/pages/Homepage/Home'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'owl.carousel/dist/assets/owl.carousel.css';  
+import 'owl.carousel/dist/assets/owl.theme.default.css';  
+import WorkOutVideo from '../src/pages/WorkOut/WorkOutVideo';
+import Login from '../src/pages/LoginPage/LoginPage';
+import Signup from '../src/pages/SignUpPage/SignUpPage';
+import Dashboard from '../src/pages/DashBoardPage/DashBoardPage';
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />
   },
   {
-    path: "/workOut",
-    element: <WorkOut />,
-  },
-  {
-    path: "/recipes",
-    element: <Recipes />,
-  },
-  {
-    path: "/dashBoard",
-    element: <DashBoardPage />,
+    path: "/workout-videos",
+    element: <WorkOutVideo />
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: <Login />
   },
   {
     path: "/signup",
-    element: <SignUpPage />,
+    element: <Signup />
   },
-]);
+  {
+    path: "/dashboard",
+    element: <Dashboard />
+  }
+])
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
