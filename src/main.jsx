@@ -9,6 +9,7 @@ import Recipes from "./pages/Recipes/Recipes";
 import DashBoardPage from "./pages/DashBoardPage/DashBoardPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
+import Recipe from "./pages/Recipes/Recipe-page";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -34,8 +35,12 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/signup",
+    path: "/register",
     element: <SignUpPage />,
+  },
+  {
+    path: "/recipes/:name",
+    element: <Recipe />,
   },
 ]);
 
