@@ -45,9 +45,11 @@ function Recipe() {
       <div className="ingredients">
         <h3>Ingredients</h3>
         <ul>
-          {details.extendedIngredients.map((ingredient) => (
-            <li key={ingredient.id}>{ingredient.original}</li>
-          ))}
+          {details &&
+            details.extendedIngredients &&
+            details.extendedIngredients.map((ingredient) => (
+              <li key={ingredient.id}>{ingredient.original}</li>
+            ))}
         </ul>
       </div>
       <div className="instructions">
