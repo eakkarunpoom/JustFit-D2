@@ -27,8 +27,29 @@
   z-index: -1;
 }
 
-.contain {
+.image {
   display: flex;
   justify-content: center;
   background-color: var(--main);
+  padding: 0 20%;
+}
+
+.ingredients {
+  padding: 2% 25%;
+  font-size: 1.5rem;
+}
+
+.instructions {
+  background-color: var(--main);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.padding {
+  padding: 0 25%;
+}
+
+.instruction-list {
+  padding: 0% 25%;
+  font-size: 1.5rem;
 }

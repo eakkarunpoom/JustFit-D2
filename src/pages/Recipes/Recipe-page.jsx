@@ -37,36 +37,40 @@ function Recipe() {
   return (
     <Layout>
       <div className="contain">
-        <div className="image-container">
-          <img src={details.image} />
-          <div className="caption">{details.title}</div>
+        <div className="image">
+          <div className="image-container">
+            <img src={details.image} />
+            <div className="caption">{details.title}</div>
+          </div>
         </div>
-      </div>
-      <div className="ingredients">
-        <h3>Ingredients</h3>
-        <ul>
-          {details &&
-            details.extendedIngredients &&
-            details.extendedIngredients.map((ingredient) => (
-              <li key={ingredient.id}>{ingredient.original}</li>
-            ))}
-        </ul>
-      </div>
-      <div className="instructions">
-        <h3>Instructions</h3>
-        {details.analyzedInstructions &&
-        details.analyzedInstructions.length > 0 ? (
-          details.analyzedInstructions.map((instructionGroup) => (
-            <div key={instructionGroup.name}>
-              <h4>{instructionGroup.name}</h4>
-              {generateMenuList(
-                instructionGroup.steps.map((step) => step.step).join(". ")
-              )}
-            </div>
-          ))
-        ) : (
-          <p>No instructions found.</p>
-        )}
+        <div className="ingredients">
+          <h3>Ingredients</h3>
+          <ul>
+            {details &&
+              details.extendedIngredients &&
+              details.extendedIngredients.map((ingredient) => (
+                <li key={ingredient.id}>{ingredient.original}</li>
+              ))}
+          </ul>
+        </div>
+        <div className="instructions">
+          <h3 className="text-center my-4">How to make {details.title}</h3>
+          {details.analyzedInstructions &&
+          details.analyzedInstructions.length > 0 ? (
+            details.analyzedInstructions.map((instructionGroup) => (
+              <div key={instructionGroup.name}>
+                <h4>{instructionGroup.name}</h4>
+                <ul className="instruction-list">
+                  {generateMenuList(
+                    instructionGroup.steps.map((step) => step.step).join(". ")
+                  )}
+                </ul>
+              </div>
+            ))
+          ) : (
+            <p>No instructions found.</p>
+          )}
+        </div>
       </div>
     </Layout>
   );
