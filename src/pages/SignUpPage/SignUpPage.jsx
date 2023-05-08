@@ -55,7 +55,7 @@ function SignUpPage() {
             Sign up
           </button>
           {/* google */}
-          <button type="button" class="login-with-google-btn m-auto ">
+          <button type="button" className="login-with-google-btn m-auto ">
             Continue with Google
           </button>
         </form>
