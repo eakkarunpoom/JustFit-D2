@@ -29,7 +29,7 @@ function LoginPage() {
               id="floatingInput"
               placeholder="name@example.com"
             />
-            <label for="floatingInput">Email address</label>
+            <label htmlFor="floatingInput">Email address</label>
           </div>
           <div className="form-floating mb-4 w-100">
             <input
@@ -38,7 +38,7 @@ function LoginPage() {
               id="floatingPassword"
               placeholder="Password"
             />
-            <label for="floatingPassword">Password</label>
+            <label htmlFor="floatingPassword">Password</label>
           </div>
 
           <div className="checkbox mb-3">
@@ -52,12 +52,12 @@ function LoginPage() {
             Log in
           </button>
           {/* google */}
-          <button type="button" class="login-with-google-btn m-auto ">
+          <button type="button" className="login-with-google-btn m-auto ">
             Continue with Google
           </button>
         </form>
         <p className="text-center mt-4">
-          Don’t have an account? <a href="/signup">Sign up</a>
+          Don't have an account? <a href="/signup">Sign up</a>
         </p>
       </main>
     </Layout>
