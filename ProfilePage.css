@@ -1,0 +1,58 @@
+/* .head {
+    justify-content: center;
+    display: flex;
+} */
+
+.profile {
+    border: 2px solid purple;
+    margin: 64px 512px;
+    border-radius: 10px;
+    padding: 32px 0px
+}
+
+.title {
+    justify-content: center;
+    display: flex;
+}
+.current-photo {
+    justify-content: center;
+    display: flex;
+}
+.profileimg {
+    margin: auto;
+    width: 180px;
+    height: 180px;
+}
+.profileimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.detail {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-profile {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.btn-profile button {
+    padding: 8px 64px;
+    background-color: blue;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+.btn-profile .edit-profile a {
+    text-decoration: none;
+    color: white
+}
