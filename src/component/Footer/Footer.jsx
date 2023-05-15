@@ -3,14 +3,12 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 px-5 bgp ">
-      <div className="col-md-4 d-flex align-items-center">
-        <span className="mb-3 mb-md-0">
-          © 2023 JustFit. All Rights Reserved.
-        </span>
+    <footer className="d-flex justify-content-between align-items-center py-3 mt-4 px-5 bgp">
+      <div className="col-md-4 col-12 d-flex align-items-center mb-3 mb-md-0">
+        <span>© 2023 JustFit. All Rights Reserved.</span>
       </div>
 
-      <ul className="nav col-md-4 justify-content-end list-unstyled d-flex sticky-bottom">
+      <ul className="nav col-md-4 col-12 justify-content-end list-unstyled d-flex sticky-bottom">
         <li className="ms-3">
           <a href="#">
             <svg
