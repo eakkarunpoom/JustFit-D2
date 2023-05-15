@@ -6,6 +6,7 @@
   font-weight: bold;
 }
 
-.login {
+.login,
+.login:hover {
   background-color: aliceblue;
 }
