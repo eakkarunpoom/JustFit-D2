@@ -34,6 +34,11 @@ function Random() {
           pagination: false,
           drag: "free",
           gap: "4rem",
+          breakpoints: {
+            768: {
+              perPage: 1,
+            },
+          },
         }}
       >
         {random &&

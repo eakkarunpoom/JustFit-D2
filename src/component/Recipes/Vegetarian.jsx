@@ -31,6 +31,11 @@ function Vegetarian() {
           pagination: false,
           drag: "free",
           gap: "2rem",
+          breakpoints: {
+            768: {
+              perPage: 1,
+            },
+          },
         }}
       >
         {vegetarian &&
