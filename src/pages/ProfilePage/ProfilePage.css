@@ -1,0 +1,53 @@
+/* .myproflie-user, .current-photo, .image-user-profile {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.myproflie-user, .current-photo {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.name-profile-user, .gender, .age, .height-profile-user, .weight-profile-user {
+    display: flex;
+    justify-content: start;
+    margin-top: 6px;
+}
+
+.image-user-profile {
+    width: 180px;
+    height: 180px;
+    margin: auto;
+}
+
+.image-user-profile img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.container {
+    border: 3px solid #6F36BC;
+    width: fit-content;
+    border-radius: 18px;
+}
+
+.identity {
+    font-weight: bold;
+}
+
+.btn-edit-profile {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+}
+
+.btn-edit-profile button {
+    padding: 16px 0px;
+    width: 100%;
+    border: none;
+    background-color: #712EFF;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+} */

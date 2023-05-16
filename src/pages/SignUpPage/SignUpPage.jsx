@@ -1,8 +1,68 @@
 import React from "react";
 import Layout from "../../component/Layout/Layout";
 import Helmet from "react-helmet";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { auth } from '../../firebase';
+
 
 function SignUpPage() {
+  const navigate = useNavigate();
+  const provider = new GoogleAuthProvider();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+}
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+  }
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    await createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user);
+      navigate("/login")
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+    })
+  }
+
+  const onLoginWithGoogle = () => {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log(token);
+        console.log('user', user);
+        navigate("/")
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+    }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+    });
+}
+
   return (
     <Layout>
       <Helmet>
@@ -20,7 +80,7 @@ function SignUpPage() {
         <h1 className="h1 mb-3 text-center log-in">
           Join JustFit today,
           <br />
-          It’s free
+          It's free
         </h1>
         <h1 className="h3 mb-3 fw-bold text-center">Welcome to JustFit!</h1>
 
@@ -31,8 +91,9 @@ function SignUpPage() {
               className="form-control"
               id="floatingInput"
               placeholder="name@example.com"
+              onChange={handleEmail}
             />
-            <label for="floatingInput">Email address</label>
+            <label htmlFor="floatingInput">Email address</label>
           </div>
           <div className="form-floating mb-4 w-100">
             <input
@@ -40,8 +101,9 @@ function SignUpPage() {
               className="form-control"
               id="floatingPassword"
               placeholder="Password"
+              onChange={handlePassword}
             />
-            <label for="floatingPassword">Password</label>
+            <label htmlFor="floatingPassword">Password</label>
           </div>
 
           <div className="checkbox mb-3">
@@ -51,16 +113,17 @@ function SignUpPage() {
             <a href="#">Forgot password?</a>
           </div>
 
-          <button className="w-100 btn btn-lg login-btn mb-4" type="submit">
+          <button className="w-100 btn btn-lg login-btn mb-4" type="submit" onClick={onSubmit}>
             Sign up
           </button>
           {/* google */}
-          <button type="button" class="login-with-google-btn m-auto ">
+          <button type="button" className="login-with-google-btn m-auto " onClick={onLoginWithGoogle}>
             Continue with Google
           </button>
         </form>
         <p className="text-center mt-4">
-          Already a member? <a href="/login">Log in</a>
+          Already a member? 
+          <a href="/login">Log in</a>
         </p>
       </main>
     </Layout>

@@ -10,6 +10,7 @@ import WorkOutVideo from '../src/pages/WorkOut/WorkOutVideo';
 import Login from '../src/pages/LoginPage/LoginPage';
 import Signup from '../src/pages/SignUpPage/SignUpPage';
 import Dashboard from '../src/pages/DashBoardPage/DashBoardPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />
   }
 ])
 

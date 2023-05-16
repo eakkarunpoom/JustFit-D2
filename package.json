@@ -13,6 +13,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
+    "firebase": "^9.22.0",
     "framer-motion": "^10.12.7",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

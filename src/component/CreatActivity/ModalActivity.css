@@ -1,0 +1,82 @@
+.modal-header {
+    background-color: #8744E1;
+    color: white;
+}
+
+.form-activity {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+select#activities {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.text-input {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.text-input input {
+    width: 100%;
+}
+
+.date-duration {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.date {
+    width: 50%;
+}
+
+.date input {
+    width: 100%;
+}
+
+.duration22 {
+    width: 50%;
+}
+
+.duration22 input {
+    width: 100%;
+}
+
+.energy-dis {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.energy-burn {
+    width: 50%;
+}
+
+.energy-burn input {
+    width: 100%;
+}
+
+.distance {
+    width: 50%;
+}
+
+.distance input {
+    width: 100%;
+}
+
+.modal-footer {
+    width: 100%;
+}
+
+.description {
+    width: 100%;
+}
+
+.description input {
+    width: 100%;
+}

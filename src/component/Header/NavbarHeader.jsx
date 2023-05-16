@@ -4,8 +4,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import './NavbarHeader.css';
 import ButtonLogin from '../ButtonLogin/ButtonLogin';
 import ButtonSignup from '../ButtonSignup/ButtonSignup';
+import ButtonLogout from '../ButtonLogout/ButtonLogout';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
 
-const NavbarHeader = () => {
+const NavbarHeader = ( {user, userLoaded} ) => {
+
+  const handleLogout = () => {
+    signOut(auth).then(function() {
+      // Sign-out successful.
+      window.location.reload(false);
+
+    }).catch(function(error) {
+      // An error happened.
+      console.log('error: ', error)
+    });
+  }
+
   return (
       <Navbar expand="md">
         <Container>
@@ -23,8 +38,25 @@ const NavbarHeader = () => {
           </div>
           <div className='btn-join'>
             <Nav>
-              <ButtonLogin />
-              <ButtonSignup />
+            {
+              userLoaded && (
+                <>
+                {
+                  !user && (
+                    <>
+                      <ButtonLogin />
+                      <ButtonSignup />
+                    </>
+                  )
+                }
+                {
+                  user && (
+                    <ButtonLogout handleLogout={handleLogout}/>
+                  )
+                }
+                </>
+              )
+            }
             </Nav>
           </div>
           </Navbar.Collapse>
