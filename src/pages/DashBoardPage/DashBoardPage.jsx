@@ -6,13 +6,31 @@ import Col from "react-bootstrap/esm/Col";
 import logotitle from '../../../public/images/logotitle.png';
 import "./Dashboard.css";
 import { useState } from "react";
-import { Modal , Button} from 'react-bootstrap';
+import ModalActivity from "../../component/CreatActivity/ModalActivity";
+import ModalGoal from "../../component/CreateGoal/ModalGoal";
+import ListActivity from "../../component/ListActivity/ListActivity";
+import ListGoal from "../../component/ListGoal/ListGoal";
 
 function DashBoardPage() {
-  const [show, setShow] = useState(false);
+  const [showActivityForm, setShowActivityForm] = useState(false);
+  const [showGoalForm, setShowGoalForm] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    setShowActivityForm(false)
+  };
+
+  const handleShow = () => {
+    setShowActivityForm(true)
+  };
+
+  const handleCloseModal = () => {
+    setShowGoalForm(false);
+  }
+
+  const handleShowModal = () => {
+    setShowGoalForm(true);
+  }
+
   return (
     <Layout>
       <Container>
@@ -82,7 +100,7 @@ function DashBoardPage() {
               </Col>
               <Col className="profile-user">
                 <div className="icon-user">
-                  <img src={logotitle} alt="clock-duration" />
+                  <a href="/profile"><img src={logotitle} alt="clock-duration" /></a>
                 </div>
                 <div className="info-user">
                   <div className="title-user">
@@ -136,116 +154,21 @@ function DashBoardPage() {
               <div className="topic-btn-create-actity">
                 <button className="btn-create-actity" onClick={handleShow}>Create Activity</button>
               </div>
-              <div className="activity-content">
-                <div className="image-activity">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5w6Knvs6OaZ9wkKlCggZXHLXIO9XRkQ4YKiPBF7dMqo6tv-l" alt="running"/>
-                </div>
-                <div className="detail-activity-content">
-                  <div className="habit-title">
-                    Runing with friend
-                  </div>
-                  <div className="duration-activity">
-                    Duration : 30 min
-                  </div>
-                  <div className="energy-burn-activity">
-                    Energy burn : 15 cal
-                  </div>
-                  <div className="descriptioin-activity">
-                    Lorem activity detail
-                  </div>
-                </div>
-                <div className="btn-edit-del">
-                  <button className="edit"><img src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png" alt="edit"/></button>
-                  <button className="del"><img src="https://cdn-icons-png.flaticon.com/512/3687/3687412.png" alt="del" /></button>
-                </div>
-              </div>
+                <ListActivity showActivityForm={showActivityForm} />
             </Col>
             <Col className="create-activity">
             <div className="title-activity-tracking">Goal tracking</div>
               <div className="topic-btn-create-actity">
-                <button className="btn-create-actity">Create goal</button>
+                <button className="btn-create-actity" onClick={handleShowModal}>Create goal</button>
               </div>
-              <div className="activity-content">
-                <div className="image-activity">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5w6Knvs6OaZ9wkKlCggZXHLXIO9XRkQ4YKiPBF7dMqo6tv-l" alt="running"/>
-                </div>
-                <div className="activity-type">
-                  Runing
-                </div>
-                <div className="activity-distance">
-                  80 km
-                </div>
-                <div className="btn-goal">
-                  <button className="done">Done</button>
-                  <button className="cancle">Cancle</button>
-                </div>
-              </div>
+              <ListGoal />
             </Col>
           </Row>
         </div>
       </Container>
-
       {/* Modal */}
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Create Activity</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="form-activity">
-            <form>
-            <div className="activities">
-              <p>Choose Activity</p>
-              <select name="activities" id="activities">
-                <option value="run">Run</option>
-                <option value="bicycle-ride">Bicycle ride</option>
-                <option value="swim">Swim</option>
-                <option value="walk">Walk</option>
-                <option value="hike">Hike</option>
-                <option value="yoga">Yoga</option>
-              </select>
-            </div>
-              <div className="title">
-                <p>Habit Title</p>
-                <input type="text"/>
-              </div>
-              <div className="date-duration">
-                <div className="date">
-                  <p>Date</p>
-                  <input type="date"/>
-                </div>
-                <div className="duration22">
-                  <p>Duration (min)</p>
-                  <input type="text"/>
-                </div>
-              </div>
-              <div className="energy-burn">
-                <p>Energy burn (Calories)</p>
-                <input type="text" disabled={true}/>
-              </div>
-              <div className="distance">
-                <p>Distance (meter)</p>
-                <input type="text"/>
-              </div>
-              <div className="description">
-                <p>Description</p>
-                <input type="text"/>
-              </div>
-              <div className='btn'>
-                <button type="submit" >Create</button>
-                <button>Cancle</button>
-              </div>
-            </form>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ModalActivity showActivityForm={showActivityForm} handleClose={handleClose} />
+      <ModalGoal showGoalForm={showGoalForm} handleCloseModal={handleCloseModal}/>
     </Layout>
   );
 }

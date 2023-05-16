@@ -102,7 +102,6 @@
     margin: 16px;
     border-radius: 10px;
     color: white;
-    display: flex;
     padding: 16px 16px;
 }
 
@@ -182,4 +181,64 @@ button.del {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.list-activity {
+    display: flex;
+}
+
+.goal-content {
+    background-color: #6F36BC;
+    margin: 16px;
+    border-radius: 10px;
+    color: white;
+    padding: 16px 16px;
+    display: flex;
+}
+
+.image-goal {
+    width: 60px;
+    height: 60px;
+}
+
+.image-goal img {
+    width: 100%;
+    border-radius: 30px; 
+}
+
+.goal-type {
+    display: flex;
+    align-items: center;
+}
+
+.mid-content {
+    padding-left: 24px;
+    font-weight: bold;
+}
+
+.btn-goal {
+    margin-left: auto;
+    display: flex;
+}
+
+button.done {
+    width: 100%;
+    height: 100%;
+    background-color: #35C1A7;
+    border: none;
+    margin: 0px 12px;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50%;
+}
+
+button.cancle {
+    width: 100%;
+    height: 100%;
+    background-color: #E00B0B;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50%;
+
 }

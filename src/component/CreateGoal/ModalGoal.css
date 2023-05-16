@@ -1,0 +1,9 @@
+.energy-dis-dura {
+    width: 100%;
+    display: flex;
+    gap: 32px;
+}
+
+.dead-line {
+    margin-bottom: 16px;
+}
