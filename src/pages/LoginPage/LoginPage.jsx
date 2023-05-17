@@ -12,6 +12,7 @@ function LoginPage() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -32,8 +33,9 @@ function LoginPage() {
     })
     .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
+        const errorMessage = "E-mail or Password Invalid";
         console.log(errorCode, errorMessage)
+        setErrorMessage(errorMessage);
     });
    
 }
@@ -41,25 +43,16 @@ function LoginPage() {
   const onLoginWithGoogle = () => {
     signInWithPopup(auth, provider)
     .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        // The signed-in user info.
         const user = result.user;
         console.log(token);
         console.log('user', user);
         navigate("/")
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
+
     }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+      console.log(error);
+
     });
 }
 
@@ -79,7 +72,9 @@ function LoginPage() {
       <main className="form_container m-auto mt-4 ">
         <h1 className="h1 mb-3 text-center log-in">Log in</h1>
         <h1 className="h3 mb-3 fw-bold text-center">Welcome back</h1>
-
+        <div style={{display:"flex" , color:"red" , justifyContent:"center"}}>
+          {errorMessage && <p>{errorMessage}</p>}
+        </div>
         <form className="mx-4">
           <div className="form-floating mb-4 w-100">
             <input

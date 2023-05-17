@@ -108,7 +108,7 @@ const Home = () => {
             “I've been using JustFit for a month and <br />have already achieved my fitness goals. <br />Highly recommend!”
           </div>
           <div className="user-achrived">
-            <div className="image-user">
+            <div className="image-user-home">
               <img
                 src={user}
                 alt="Teresa Dunne"

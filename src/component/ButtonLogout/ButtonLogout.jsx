@@ -1,8 +1,17 @@
-import Nav from 'react-bootstrap/Nav';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const ButtonLogout = ({handleLogout}) => {
     return (
-        <Nav.Link><button className='login' onClick={handleLogout}>Log out</button></Nav.Link>
+        <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            name
+            </Dropdown.Toggle>
+    
+            <Dropdown.Menu>
+            <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+            <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
     )
 }
 

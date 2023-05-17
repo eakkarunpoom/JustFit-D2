@@ -1,25 +1,29 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import "./NavbarHeader.css";
-import ButtonLogin from "../ButtonLogin/ButtonLogin";
-import ButtonSignup from "../ButtonSignup/ButtonSignup";
-import ButtonLogout from "../ButtonLogout/ButtonLogout";
-import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import './NavbarHeader.css';
+import ButtonLogin from '../ButtonLogin/ButtonLogin';
+import ButtonSignup from '../ButtonSignup/ButtonSignup';
+import ButtonLogout from '../ButtonLogout/ButtonLogout';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
+import { useNavigate } from "react-router-dom";
 
-const NavbarHeader = ({ user, userLoaded }) => {
+const NavbarHeader = ( {user, userLoaded} ) => {
+
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    signOut(auth)
-      .then(function() {
-        // Sign-out successful.
-        window.location.reload(false);
-      })
-      .catch(function(error) {
-        // An error happened.
-        console.log("error: ", error);
-      });
-  };
+    signOut(auth).then(function() {
+      navigate("/")
+      // Sign-out successful.
+      window.location.reload(false);
+
+    }).catch(function(error) {
+      // An error happened.
+      console.log('error: ', error)
+    });
+  }
 
   return (
     <Navbar expand="md">
