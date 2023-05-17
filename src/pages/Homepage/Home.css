@@ -111,13 +111,13 @@
   align-items: center;
 }
 
-.image-user {
+.image-user-home {
   width: 100px;
   height: 100px;
   margin-right: 16px;
 }
 
-.image-user img {
+.image-user-home img {
   width: 100%;
   height: 100%;
   border-radius: 80px;
