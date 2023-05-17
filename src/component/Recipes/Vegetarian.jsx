@@ -2,38 +2,35 @@ import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from "react-router-dom";
-import "./Random.css";
 
-function Random() {
-  const [random, setRandom] = useState([]);
-
+function Vegetarian() {
+  const [vegetarian, setVegetarian] = useState([]);
   useEffect(() => {
-    getRandom();
+    getVegetarian();
   }, []);
 
-  const getRandom = async () => {
-    const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${
-        import.meta.env.VITE_APP_API_KEY
-      }&number=9&cuisine=korean`
-    );
-    const data = await api.json();
-    localStorage.setItem("random", JSON.stringify(data.recipes));
-    setRandom(data.recipes);
+  const getVegetarian = async () => {
+    const endpoint = `https://api.spoonacular.com/recipes/random?apiKey=${
+      import.meta.env.VITE_APP_API_KEY
+    }&number=9&diet=vegetarian`;
+
+    const response = await fetch(endpoint);
+    const data = await response.json();
     console.log(data.recipes);
+    setVegetarian(data.recipes);
   };
 
   return (
     <div className="wrapper">
-      <h3 className="title">Dish of the day</h3>
+      <h3 className="title">Recommend menu</h3>
 
       <Splide
         options={{
-          perPage: 3,
+          perPage: 4,
           arrows: false,
           pagination: false,
           drag: "free",
-          gap: "4rem",
+          gap: "2rem",
           breakpoints: {
             768: {
               perPage: 1,
@@ -41,8 +38,8 @@ function Random() {
           },
         }}
       >
-        {random &&
-          random.map((recipe) => {
+        {vegetarian &&
+          vegetarian.map((recipe) => {
             return (
               <SplideSlide key={recipe.id}>
                 <div className="card">
@@ -59,4 +56,4 @@ function Random() {
   );
 }
 
-export default Random;
+export default Vegetarian;
