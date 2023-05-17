@@ -9,7 +9,6 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useNavigate } from "react-router-dom";
 
-
 const NavbarHeader = ( {user, userLoaded} ) => {
 
   const navigate = useNavigate();
@@ -27,47 +26,41 @@ const NavbarHeader = ( {user, userLoaded} ) => {
   }
 
   return (
-      <Navbar expand="md">
-        <Container>
-          <div className='logo'>
-            <Navbar.Brand href="/">Just<span>Fit</span></Navbar.Brand>
-          </div>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-          <div className='menu-bar'>
+    <Navbar expand="md">
+      <Container>
+        <div className="logo">
+          <Navbar.Brand href="/">
+            Just<span>Fit</span>
+          </Navbar.Brand>
+        </div>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <div className="menu-bar">
             <Nav>
               <Nav.Link href="/workout-videos">Workout videos</Nav.Link>
-              <Nav.Link href="#link">Recipes</Nav.Link>
+              <Nav.Link href="/recipes">Recipes</Nav.Link>
               <Nav.Link href="/dashboard">Dash board</Nav.Link>
             </Nav>
           </div>
-          <div className='btn-join'>
+          <div className="btn-join">
             <Nav>
-            {
-              userLoaded && (
+              {userLoaded && (
                 <>
-                {
-                  !user && (
+                  {!user && (
                     <>
                       <ButtonLogin />
                       <ButtonSignup />
                     </>
-                  )
-                }
-                {
-                  user && (
-                    <ButtonLogout handleLogout={handleLogout}/>
-                  )
-                }
+                  )}
+                  {user && <ButtonLogout handleLogout={handleLogout} />}
                 </>
-              )
-            }
+              )}
             </Nav>
           </div>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-}
+};
 
 export default NavbarHeader;
