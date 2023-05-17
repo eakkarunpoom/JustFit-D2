@@ -93,7 +93,7 @@ function DashBoardPage() {
           </Col>
           <Col className="profile-content">
             <div className="image-user">
-              <img src="https://icon-library.com/images/person-png-icon/person-png-icon-29.jpg" alt="person"/>
+              <a href="/profile"><img src="https://icon-library.com/images/person-png-icon/person-png-icon-29.jpg" alt="person"/></a>
             </div>
             <div className="name-user-profile">
               Moss Eakkarunpoom

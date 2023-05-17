@@ -1,4 +1,4 @@
-/* .myproflie-user, .current-photo, .image-user-profile {
+.myproflie-user, .current-photo, .image-user-profile {
     display: flex;
     justify-content: center;
     
@@ -26,7 +26,7 @@
     border-radius: 50%;
 }
 
-.container {
+.edit-profile {
     border: 3px solid #6F36BC;
     width: fit-content;
     border-radius: 18px;
@@ -50,4 +50,4 @@
     color: white;
     font-size: 1rem;
     font-weight: bold;
-} */
+}
