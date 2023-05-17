@@ -16,7 +16,7 @@ const ProfilePage = () => {
     
     return (
         <Layout>
-            <div className="container" style={{margin:"48px auto"}}>
+            <div className="edit-profile" style={{margin:"48px auto"}}>
                 <div style={{padding:"64px", margin:"0 48px"}}>
                     <div className="myproflie-user">
                         My Profile

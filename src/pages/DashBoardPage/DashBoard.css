@@ -75,6 +75,11 @@
     width: 100%;
 }
 
+.image-user:hover {
+    filter: brightness(30%);
+    cursor: pointer;
+}
+
 .profile-content {
     border: 3px solid #6F36BC;
     border-radius: 30px;
