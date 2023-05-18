@@ -5,6 +5,7 @@ import config from "../../config";
 const ListGoal = () => {
     const [goal, setGoal] = useState([]);
 
+    const xAccessToken = localStorage.getItem('xAccessToken')
     const calDate = (data) => {
         for (let i = 0; i < data.length; i++) {
             const newDate = new Date(data[i].deadline);
@@ -20,7 +21,9 @@ const ListGoal = () => {
         const configAxios = {
             method: 'get',
             url: `${config.serverUrl}/api/goal`,
-            headers: { }
+            headers: {
+                'x-access-token': xAccessToken
+            }
         };
         try {
             axios(configAxios)
@@ -35,7 +38,7 @@ const ListGoal = () => {
     
     useEffect(() => {
         getGoal();
-   }, [goal]);
+   }, []);
 
    const handleDone = () => {
 

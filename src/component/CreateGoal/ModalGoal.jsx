@@ -10,6 +10,8 @@ const ModalGoal = ({showGoalForm, handleCloseModal}) => {
     const [duration, setDuration] = useState(0);
     const [energyBurn, setEnergyBurn] = useState(0);
     const [distance, setDistance] = useState(0);
+
+    const xAccessToken = localStorage.getItem('xAccessToken')
     const createGoal = () => {
         const data = {
             activityType: activityType,
@@ -23,7 +25,10 @@ const ModalGoal = ({showGoalForm, handleCloseModal}) => {
         const configAxios = {
             method: 'post',
             url: `${config.serverUrl}/api/goal`,
-            headers: {  'Content-Type': 'application/json' },
+            headers: {  
+              'Content-Type': 'application/json', 
+              'x-access-token': xAccessToken
+            },
             data,
         };
         try {

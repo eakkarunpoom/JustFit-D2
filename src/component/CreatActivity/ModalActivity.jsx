@@ -14,6 +14,7 @@ const ModalActivity = ({showActivityForm, handleClose}) => {
   const [distance, setDistance] = useState(0);
   const [description, setDescriptions] = useState("");
 
+  const xAccessToken = localStorage.getItem('xAccessToken')
   const createActivity = () => {
     const data = {
         activityType: activityType,
@@ -28,7 +29,10 @@ const ModalActivity = ({showActivityForm, handleClose}) => {
     const configAxios = {
         method: 'post',
         url: `${config.serverUrl}/api/activity`,
-        headers: {  'Content-Type': 'application/json' },
+        headers: {  
+          'Content-Type': 'application/json', 
+          'x-access-token': xAccessToken
+        },
         data,
     };
     try {

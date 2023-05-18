@@ -6,11 +6,14 @@ const ListActivity = () => {
     // console.log("show",showActivityForm);
     const [activity, setActivity] = useState([]);
     // const [reload] = useState(showActivityForm);
+        const xAccessToken = localStorage.getItem('xAccessToken')
         const getActivity = () => {
         const configAxios = {
             method: 'get',
             url: `${config.serverUrl}/api/activity`,
-            headers: { }
+            headers: {
+                'x-access-token': xAccessToken
+            }
         };
         try {
             axios(configAxios)
@@ -24,7 +27,7 @@ const ListActivity = () => {
     
     useEffect(() => {
         getActivity();
-   }, [activity]);
+   }, []);
 
    return (
         activity.map((item) => {

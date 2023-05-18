@@ -10,10 +10,9 @@ const Layout = ({children}) => {
     useEffect(()=>{
       onAuthStateChanged(auth, (userFirebase) => {
           if (userFirebase) {
-            console.log('userFirebase', userFirebase)
             const uid = userFirebase.uid;
-            console.log("uid", uid)
             setUser(userFirebase)
+            localStorage.setItem('xAccessToken', userFirebase.accessToken)
             
           } else {
             console.log("user is logged out")
