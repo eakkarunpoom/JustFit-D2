@@ -32,9 +32,14 @@ form {
 }
 
 .login-btn {
-  background-color: var(--pink);
-  color: var(--light);
+  background-color: #ff4878;
+  color: white;
   font-weight: bold;
+}
+
+.login-btn:hover {
+  background-color: #6f36bc;
+  color: white;
 }
 
 .login-with-google-btn {
