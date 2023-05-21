@@ -20,6 +20,7 @@ function DashBoardPage() {
   const [age, setAge] = useState(0);
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
+  const [photoUrl] = useState(localStorage.getItem('photoURL'))
   
   const xAccessToken = localStorage.getItem('xAccessToken')
   const getGoal = () => {
@@ -68,7 +69,7 @@ function DashBoardPage() {
     } catch (error) {
         console.log(error);
     }
-}
+  }
 
   const handleClose = () => {
     setShowActivityForm(false)
@@ -85,43 +86,6 @@ function DashBoardPage() {
   const handleShowModal = () => {
     setShowGoalForm(true);
   }
-
-  // const renderDuration = () => {
-  //   const sumDuration = goal.reduce((accumulator, currentValue) => {
-  //     if (currentValue.status === "done"){
-  //       return accumulator + currentValue.duration
-  //     }
-  //     else {
-  //       return accumulator
-  //     }
-  //   },0) 
-  //   console.log(sumDuration);
-  //   return sumDuration/60
-  // }
-
-  // const renderEnergyBurn = () => {
-  //   const sumEnergyBurn = goal.reduce((accumulator, currentValue) => {
-  //     if (currentValue.status === "done"){
-  //       return accumulator + currentValue.energyBurn
-  //     }
-  //     else {
-  //       return accumulator
-  //     }
-  //   },0)
-  //   return sumEnergyBurn
-  // }
-
-  // const renderDistance = () => {
-  //   const sumDistance = goal.reduce((accumulator, currentValue) => {
-  //     if (currentValue.status === "done"){
-  //       return accumulator + currentValue.distance
-  //     }
-  //     else {
-  //       return accumulator
-  //     }
-  //   },0)
-  //   return sumDistance
-  // }
 
   const renderGoal = () => {
     const sumGoal = goal.reduce((accumulator, currentValue) => {
@@ -217,7 +181,7 @@ function DashBoardPage() {
           </Col>
           <Col className="profile-content">
             <div className="image-user">
-              <a href="/profile"><img src="https://icon-library.com/images/person-png-icon/person-png-icon-29.jpg" alt="person"/></a>
+              <a href="/profile"><img src={photoUrl} alt="person"/></a>
             </div>
             <div className="name-user-profile">
               {name}

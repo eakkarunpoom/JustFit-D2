@@ -12,7 +12,13 @@ const Layout = ({children}) => {
           if (userFirebase) {
             const uid = userFirebase.uid;
             setUser(userFirebase)
-            localStorage.setItem('xAccessToken', userFirebase.accessToken)
+            console.log('userFirebase', userFirebase)
+            localStorage.setItem('xAccessToken', userFirebase.accessToken);
+            if (userFirebase.photoURL) {
+              localStorage.setItem('photoURL', userFirebase.photoURL);
+            } else {
+              localStorage.setItem('photoURL', `https://ui-avatars.com/api/?size=128&background=0D8ABC&color=fff&name=${userFirebase.email}`);
+            }
             
           } else {
             console.log("user is logged out")
