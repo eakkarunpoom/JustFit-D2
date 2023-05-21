@@ -1,13 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import config from "../../config";
+import UpdateActivity from "../UpdateActivity/UpdateActivity";
+import DeleteActivity from "../DeleteActivity/DeleteActivity";
 
-const ListActivity = () => {
-    // console.log("show",showActivityForm);
+const ListActivity = ({showActivityForm}) => {
     const [activity, setActivity] = useState([]);
-    // const [reload] = useState(showActivityForm);
-        const xAccessToken = localStorage.getItem('xAccessToken')
-        const getActivity = () => {
+    const [showUpdateActivity, setshowUpdateActivity] = useState(false);
+    const [selectedItem, setSelectedItem] = useState({});
+    const [modalDelete, setModalDelete] = useState(false);
+    const xAccessToken = localStorage.getItem('xAccessToken')
+    const getActivity = () => {
         const configAxios = {
             method: 'get',
             url: `${config.serverUrl}/api/activity`,
@@ -24,13 +27,34 @@ const ListActivity = () => {
             console.log(error);
         }
     }
-    
+
+    const handleUpdate = (item) => {
+        setSelectedItem(item)
+        setshowUpdateActivity(true);
+    }
+    const showModalDelete = (item) => {
+        setSelectedItem(item)
+        setModalDelete(true);
+    }
+
+    const handleCloseModalDelete = () => {
+        getActivity();
+        setModalDelete(false);
+    }
+
+    const handleClose = () => {
+        getActivity();
+        setshowUpdateActivity(false);
+    }
+
     useEffect(() => {
         getActivity();
-   }, []);
+    }, [showActivityForm]);
 
    return (
-        activity.map((item) => {
+    <>
+        {
+            activity.map((item) => {
             return(
                 <div className="activity-content" key={item._id}>
                     <div className="list-activity">
@@ -55,14 +79,25 @@ const ListActivity = () => {
                             </div>
                         </div>
                         <div className="btn-edit-del">
-                            <button className="edit"><img src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png" alt="edit"/></button>
-                            <button className="del"><img src="https://cdn-icons-png.flaticon.com/512/3687/3687412.png" alt="del" /></button>
+                            <button className="edit" onClick={() => handleUpdate(item)}><img src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png" alt="edit"/></button>
+                            <button className="del" onClick={() => showModalDelete(item)}><img src="https://cdn-icons-png.flaticon.com/512/3687/3687412.png" alt="del" /></button>
                         </div>
                     </div>
+                    
                 </div>
             )    
         })
-)
+        }
+        {/* Modal */}
+        {
+            showUpdateActivity && <UpdateActivity editActivity={selectedItem} showUpdateActivity={showUpdateActivity} handleClose={handleClose} />
+        }
+        {
+            modalDelete && <DeleteActivity modalDelete={modalDelete} handleCloseModalDelete={handleCloseModalDelete} editActivity={selectedItem}/>
+        }
+        
+    </>
+  )
 }
 
 export default ListActivity;

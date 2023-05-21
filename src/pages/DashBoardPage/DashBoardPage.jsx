@@ -1,10 +1,11 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import config from "../../config";
 import Layout from "../../component/Layout/Layout";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import "./Dashboard.css";
-import { useState } from "react";
 import ModalActivity from "../../component/CreatActivity/ModalActivity";
 import ModalGoal from "../../component/CreateGoal/ModalGoal";
 import ListActivity from "../../component/ListActivity/ListActivity";
@@ -13,6 +14,61 @@ import ListGoal from "../../component/ListGoal/ListGoal";
 function DashBoardPage() {
   const [showActivityForm, setShowActivityForm] = useState(false);
   const [showGoalForm, setShowGoalForm] = useState(false);
+  const [goal, setGoal] = useState([]);
+  const [name, setName ] = useState('')
+  const [gender, setGender] = useState('')
+  const [age, setAge] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [weight, setWeight] = useState(0);
+  
+  const xAccessToken = localStorage.getItem('xAccessToken')
+  const getGoal = () => {
+    const configAxios = {
+        method: 'get',
+        url: `${config.serverUrl}/api/goal`,
+        headers: {
+            'x-access-token': xAccessToken
+        }
+    };
+    try {
+        axios(configAxios)
+        .then((response) => {
+            setGoal(response.data.data)
+        });
+    } catch (error) {
+        console.log(error);
+    }
+  }
+  const getUser = () => {
+    const configAxios = {
+        method: 'get',
+        url: `${config.serverUrl}/api/user`,
+        headers: {
+            'x-access-token': xAccessToken
+        }
+    };
+    try {
+        axios(configAxios)
+        .then((response) => {
+            console.log(response.data.data)
+            if(response.data.data.length === 0 ){
+                setName('Default name')
+                setGender('Default')
+                setAge(0)
+                setHeight(0)
+                setWeight(0)
+            } else {
+                setName(response.data.data[0]['name'])
+                setGender(response.data.data[0]['gender'])
+                setAge(response.data.data[0]['age'])
+                setHeight(response.data.data[0]['height'])
+                setWeight(response.data.data[0]['weight'])
+            }
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
 
   const handleClose = () => {
     setShowActivityForm(false)
@@ -29,6 +85,74 @@ function DashBoardPage() {
   const handleShowModal = () => {
     setShowGoalForm(true);
   }
+
+  // const renderDuration = () => {
+  //   const sumDuration = goal.reduce((accumulator, currentValue) => {
+  //     if (currentValue.status === "done"){
+  //       return accumulator + currentValue.duration
+  //     }
+  //     else {
+  //       return accumulator
+  //     }
+  //   },0) 
+  //   console.log(sumDuration);
+  //   return sumDuration/60
+  // }
+
+  // const renderEnergyBurn = () => {
+  //   const sumEnergyBurn = goal.reduce((accumulator, currentValue) => {
+  //     if (currentValue.status === "done"){
+  //       return accumulator + currentValue.energyBurn
+  //     }
+  //     else {
+  //       return accumulator
+  //     }
+  //   },0)
+  //   return sumEnergyBurn
+  // }
+
+  // const renderDistance = () => {
+  //   const sumDistance = goal.reduce((accumulator, currentValue) => {
+  //     if (currentValue.status === "done"){
+  //       return accumulator + currentValue.distance
+  //     }
+  //     else {
+  //       return accumulator
+  //     }
+  //   },0)
+  //   return sumDistance
+  // }
+
+  const renderGoal = () => {
+    const sumGoal = goal.reduce((accumulator, currentValue) => {
+      if (currentValue.status === "done"){
+        accumulator = {
+          duration: accumulator.duration + currentValue.duration,
+          energyBurn: accumulator.energyBurn + currentValue.energyBurn,
+          distance: accumulator.distance + currentValue.distance,
+          goal: accumulator.goal + 1,
+        }
+        return accumulator
+      }
+      else {
+        return accumulator
+      }
+    }, { duration: 0, energyBurn: 0, distance: 0, goal: 0 })
+    return sumGoal
+  }
+
+  const convertDuration = () => {
+    const timeDuration = renderGoal().duration/60
+    console.log(timeDuration)
+    const hours = Math.floor(timeDuration);
+    const minutes = Math.round((timeDuration-hours) * 60);
+    return hours + ":" + minutes 
+  }
+
+  useEffect(()=>{
+    getGoal();
+    getUser();
+  },[]);
 
   return (
     <Layout>
@@ -52,7 +176,7 @@ function DashBoardPage() {
                   Duration
                 </div>
                 <div className="sum-duration">
-                  1.30 Hours
+                  {convertDuration()} Hours
                 </div>
               </div>
               <div className="duration-content">
@@ -63,7 +187,7 @@ function DashBoardPage() {
                   Energy burn
                 </div>
                 <div className="sum-duration">
-                  500 Cal
+                  {renderGoal().energyBurn} Cal
                 </div>
               </div>
             </div>
@@ -76,7 +200,7 @@ function DashBoardPage() {
                   Distance
                 </div>
                 <div className="sum-duration">
-                  8.37 Km.
+                  {renderGoal().distance/1000} Km.
                 </div>
               </div>
               <div className="duration-content">
@@ -86,7 +210,7 @@ function DashBoardPage() {
                   Goal
                 </div>
                 <div className="sum-duration">
-                  2 Goal
+                  {renderGoal().goal} Goal
                 </div>
               </div>
             </div>
@@ -96,7 +220,7 @@ function DashBoardPage() {
               <a href="/profile"><img src="https://icon-library.com/images/person-png-icon/person-png-icon-29.jpg" alt="person"/></a>
             </div>
             <div className="name-user-profile">
-              Moss Eakkarunpoom
+              {name}
             </div>
             <div className="detail-user-profile">
               <div className="height-user-profile">
@@ -104,7 +228,7 @@ function DashBoardPage() {
                   Height
                 </div>
                 <div className="sum-height">
-                  168 cm
+                  {height} cm
                 </div>
               </div>
               <div className="weight-user-profile">
@@ -112,7 +236,7 @@ function DashBoardPage() {
                   Weight
                 </div>
                 <div className="sum-weight">
-                  60 kg
+                  {weight} kg
                 </div>
               </div>
               <div className="age-user-profile">
@@ -120,7 +244,7 @@ function DashBoardPage() {
                   Age
                 </div>
                 <div className="sum-age">
-                  23
+                  {age}
                 </div>
               </div>
             </div>
@@ -151,7 +275,7 @@ function DashBoardPage() {
               <div className="topic-btn-create-actity">
                 <button className="btn-create-actity" onClick={handleShowModal}>Create goal</button>
               </div>
-              <ListGoal />
+              <ListGoal goal={goal} getGoal={getGoal} showGoalForm={showGoalForm}/>
             </Col>
           </Row>
         </div>

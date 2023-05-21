@@ -9,7 +9,7 @@
     align-items: start;
 }
 
-select#activities {
+select.activities {
     width: 100%;
     margin-bottom: 16px;
 }
