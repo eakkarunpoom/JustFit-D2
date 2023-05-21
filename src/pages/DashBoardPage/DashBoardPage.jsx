@@ -10,6 +10,7 @@ import ModalActivity from "../../component/CreatActivity/ModalActivity";
 import ModalGoal from "../../component/CreateGoal/ModalGoal";
 import ListActivity from "../../component/ListActivity/ListActivity";
 import ListGoal from "../../component/ListGoal/ListGoal";
+import Linechart from "../../component/Linechart/Linechart";
 
 function DashBoardPage() {
   const [showActivityForm, setShowActivityForm] = useState(false);
@@ -123,7 +124,7 @@ function DashBoardPage() {
       <Container>
         <div className="top-sum">
           <div className="sum-name-user">
-                Hello, Moss
+                Hello {name}
           </div>
           <div className="sum-caption">
             Keep moving & Stay Healty
@@ -181,7 +182,9 @@ function DashBoardPage() {
           </Col>
           <Col className="profile-content">
             <div className="image-user">
-              <a href="/profile"><img src={photoUrl} alt="person"/></a>
+              {
+                photoUrl && <a href="/profile"><img src={photoUrl} alt="person"/></a>
+              }
             </div>
             <div className="name-user-profile">
               {name}
@@ -215,7 +218,8 @@ function DashBoardPage() {
           </Col>
         </Row>
         <div className="tracking-history">
-          <div className="title-tracking-history">
+          <Linechart goal={goal} />
+          {/* <div className="title-tracking-history">
             Tracking History
           </div>
           <div className="dropdown-history">
@@ -223,7 +227,7 @@ function DashBoardPage() {
           </div>
           <div className="graph-history">
             Graph
-          </div>
+          </div> */}
         </div>
         <div className="activity-tracking">
           <Row style={{gap:"16px", alignItems:"baseline"}}>

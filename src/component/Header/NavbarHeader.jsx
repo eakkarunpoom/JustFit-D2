@@ -18,7 +18,10 @@ const NavbarHeader = ( {user, userLoaded} ) => {
     signOut(auth).then(function() {
       navigate("/")
       // Sign-out successful.
+      localStorage.removeItem('xAccessToken');
+      localStorage.removeItem('photoURL');
       window.location.reload(false);
+
 
     }).catch(function(error) {
       // An error happened.
