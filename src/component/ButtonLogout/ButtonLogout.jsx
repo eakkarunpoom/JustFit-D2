@@ -1,10 +1,11 @@
 import Dropdown from 'react-bootstrap/Dropdown';
+import { AiOutlineUser } from "react-icons/ai";
 
 const ButtonLogout = ({handleLogout}) => {
     return (
         <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-            name
+            <Dropdown.Toggle variant="" id="dropdown-basic">
+                <AiOutlineUser style={{fontSize:"24px", color:"white"}}/>
             </Dropdown.Toggle>
     
             <Dropdown.Menu>
