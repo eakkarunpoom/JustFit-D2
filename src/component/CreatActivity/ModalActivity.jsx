@@ -17,7 +17,7 @@ const ModalActivity = ({showActivityForm, handleClose}) => {
   const [description, setDescriptions] = useState("");
 
   const xAccessToken = localStorage.getItem('xAccessToken')
-  const createActivity = () => {
+  const createActivity = async () => {
     const data = {
         activityType: activityType,
         title: title,
@@ -38,7 +38,7 @@ const ModalActivity = ({showActivityForm, handleClose}) => {
         data,
     };
     try {
-        axios(configAxios)
+        await axios(configAxios)
         .then((response) => {
             console.log(response.data)
         });
@@ -73,12 +73,19 @@ const ModalActivity = ({showActivityForm, handleClose}) => {
     setDescriptions(e.target.value);
   };
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
     if (activityType === "" || title === "" || date === "" || duration === "" ){
       alert("Please check form")
     }else {
-      createActivity();
+     await createActivity();
+      setActivityType("");
+      setTitle("");
+      setDate("");
+      setDuration("");
+      setEnergyBurn("")
+      setDistance("")
+      setDescriptions("")
       handleClose();
     } 
   }

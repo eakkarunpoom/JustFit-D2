@@ -18,7 +18,7 @@ const UpdateActivity = ({showUpdateActivity, handleClose, editActivity}) => {
     const [description, setDescriptions] = useState(editActivity.description);
     const xAccessToken = localStorage.getItem('xAccessToken')
 
-    const updateActivity = () => {
+    const updateActivity = async () => {
         const data = {
             activityType: activityType,
             title: title,
@@ -39,7 +39,7 @@ const UpdateActivity = ({showUpdateActivity, handleClose, editActivity}) => {
             data,
         };
         try {
-            axios(configAxios)
+            await axios(configAxios)
             .then((response) => {
                 console.log(response.data)
             });
@@ -74,9 +74,9 @@ const UpdateActivity = ({showUpdateActivity, handleClose, editActivity}) => {
         setDescriptions(e.target.value);
       };
     
-      const handleSave = (e) => {
+      const handleSave = async (e) => {
         e.preventDefault();
-        updateActivity();
+        await updateActivity();
         handleClose();
       }
     return (

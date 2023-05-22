@@ -67,6 +67,11 @@ const ModalGoal = ({showGoalForm, handleCloseModal}) => {
           alert("Please check form")
         }else {
           await createGoal();
+          setActivityType("");
+          setDeadline("");
+          setDuration("");
+          setEnergyBurn("");
+          setDistance("");
           handleCloseModal();
         } 
       }
