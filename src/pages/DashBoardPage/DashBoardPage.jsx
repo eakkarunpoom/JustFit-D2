@@ -137,7 +137,7 @@ function DashBoardPage() {
             <div className="top-sum-content">
               <div className="duration-content">
                 <div className="image-sum-duration">
-                  <IoTimeOutline style={{fontSize:"100px"}} />
+                  <IoTimeOutline style={{fontSize:"100px", textAlign:"center"}} />
                 </div>
                 <div className="title-sum-duration">
                   Duration

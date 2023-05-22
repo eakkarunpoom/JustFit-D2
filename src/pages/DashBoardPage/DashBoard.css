@@ -12,14 +12,14 @@
 
 
 .image-sum-duration {
-    width: 80px;
+    width: 100px;
     height: 80px;
     margin: auto;
 }
 
-.image-sum-duration img {
+/* .image-sum-duration img {
     width: 100%;
-}
+} */
 
 .image-sum-energy {
     width: 80px;
