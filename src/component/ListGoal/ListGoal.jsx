@@ -109,7 +109,10 @@ const ListGoal = ({showGoalForm,getGoal,goal}) => {
                             item.status === 'fail' ? 
                             <div className="btn-goal">
                                 <button className="cancle" style={{margin:"0px 12px"}}>Cancel</button>
-                                <button className="delete-goal" onClick={()=> handleDeleteGoal(item)}>X</button>
+                                <button 
+                                    className="delete-goal" 
+                                    type="button" class="btn btn-primary"
+                                    onClick={()=> handleDeleteGoal(item)}>X</button>
                             </div> : null
                         }
                     </div>

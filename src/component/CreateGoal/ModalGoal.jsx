@@ -100,7 +100,7 @@ const ModalGoal = ({showGoalForm, handleCloseModal}) => {
               <div className="energy-dis-dura">
                 <div className="energy-burn">
                   <h5>Energy burn</h5>
-                  <input type="text" disabled={true} />
+                  <input type="text" disabled={true} value={energyBurn} />
                 </div>
                 <div className="distance">
                   <h5>Distance</h5>
