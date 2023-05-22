@@ -5,7 +5,7 @@ import Layout from "../../component/Layout/Layout";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
-import "./Dashboard.css";
+import "./DashBoard.css";
 import ModalActivity from "../../component/CreatActivity/ModalActivity";
 import ModalGoal from "../../component/CreateGoal/ModalGoal";
 import ListActivity from "../../component/ListActivity/ListActivity";
