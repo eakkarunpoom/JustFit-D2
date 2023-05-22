@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import config from "../../config";
 import UpdateActivity from "../UpdateActivity/UpdateActivity";
 import DeleteActivity from "../DeleteActivity/DeleteActivity";
+import { FiEdit} from "react-icons/fi";
+
 
 const ListActivity = ({showActivityForm}) => {
     const [activity, setActivity] = useState([]);
@@ -79,7 +81,7 @@ const ListActivity = ({showActivityForm}) => {
                             </div>
                         </div>
                         <div className="btn-edit-del">
-                            <button className="edit" onClick={() => handleUpdate(item)}><img src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png" alt="edit"/></button>
+                            <button className="edit" onClick={() => handleUpdate(item)}><FiEdit style={{color:"white", fontSize:"24px"}}/></button>
                             <button className="del" onClick={() => showModalDelete(item)}><img src="https://cdn-icons-png.flaticon.com/512/3687/3687412.png" alt="del" /></button>
                         </div>
                     </div>

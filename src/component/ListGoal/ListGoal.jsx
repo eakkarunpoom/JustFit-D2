@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import config from "../../config";
 import DeleteGoal from "../DeleteGoal/DeleteGoal";
+import {RxCrossCircled} from "react-icons/rx";
+
 
 const ListGoal = ({showGoalForm,getGoal,goal}) => {
     const [onDeleteGoal, setOnDeleteGoal] = useState(false)
@@ -94,14 +96,18 @@ const ListGoal = ({showGoalForm,getGoal,goal}) => {
                             <div className="btn-goal">
                                 <button className="done" onClick={()=> handleDone(item)}>Done</button>
                                 <button className="cancle" onClick={()=> handleCancel(item)}>Cancel</button>
-                                <button className="delete-goal" onClick={()=> handleDeleteGoal(item)}>X</button>
+                                <div className="btn-edit-del">
+                                    <button className="del" style={{color:"white"}} onClick={() => handleDeleteGoal(item)}> <RxCrossCircled style={{fontSize:"24px"}}/> </button>
+                                </div>
                             </div> : null
                         }
                         {
                             item.status === 'done' ?
                             <div className="btn-goal">
                                 <button className="done">Done</button>
-                                <button className="delete-goal" onClick={()=> handleDeleteGoal(item)}>X</button>
+                                <div className="btn-edit-del">
+                                    <button className="del" style={{color:"white"}} onClick={() => handleDeleteGoal(item)}> <RxCrossCircled style={{fontSize:"24px"}}/> </button>
+                                </div>
                             </div> : null
 
                         }
@@ -109,7 +115,9 @@ const ListGoal = ({showGoalForm,getGoal,goal}) => {
                             item.status === 'fail' ? 
                             <div className="btn-goal">
                                 <button className="cancle" style={{margin:"0px 12px"}}>Cancel</button>
-                                <button className="delete-goal" onClick={()=> handleDeleteGoal(item)}>X</button>
+                                <div className="btn-edit-del">
+                                    <button className="del" style={{color:"white"}} onClick={() => handleDeleteGoal(item)}> <RxCrossCircled style={{fontSize:"24px"}}/> </button>
+                                </div>
                             </div> : null
                         }
                     </div>

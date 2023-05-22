@@ -11,6 +11,8 @@ import ModalGoal from "../../component/CreateGoal/ModalGoal";
 import ListActivity from "../../component/ListActivity/ListActivity";
 import ListGoal from "../../component/ListGoal/ListGoal";
 import Linechart from "../../component/Linechart/Linechart";
+import { IoTimeOutline } from "react-icons/io5";
+import { GiPathDistance } from "react-icons/gi";
 
 function DashBoardPage() {
   const [showActivityForm, setShowActivityForm] = useState(false);
@@ -135,7 +137,7 @@ function DashBoardPage() {
             <div className="top-sum-content">
               <div className="duration-content">
                 <div className="image-sum-duration">
-                  <img src="https://cdn-icons-png.flaticon.com/512/7313/7313700.png" alt="duration" />
+                  <IoTimeOutline style={{fontSize:"100px", textAlign:"center"}} />
                 </div>
                 <div className="title-sum-duration">
                   Duration
@@ -159,7 +161,7 @@ function DashBoardPage() {
             <div className="bot-sum-content">
               <div className="duration-content">
                 <div className="image-sum-dis">
-                  <img src="https://cdn.onlinewebfonts.com/svg/img_466583.png" alt="distance" />
+                  <GiPathDistance style={{fontSize:"90px"}} />
                 </div>
                 <div className="title-sum-duration">
                   Distance
