@@ -3,6 +3,8 @@ import './ModalGoal.css';
 import axios from "axios";
 import config from "../../config";
 import { useState } from "react";
+import activityList from "../../data/activity-type";
+
 
 const ModalGoal = ({showGoalForm, handleCloseModal}) => {
     const [activityType, setActivityType] = useState("");
@@ -12,7 +14,7 @@ const ModalGoal = ({showGoalForm, handleCloseModal}) => {
     const [distance, setDistance] = useState(0);
 
     const xAccessToken = localStorage.getItem('xAccessToken')
-    const createGoal = () => {
+    const createGoal = async () => {
         const data = {
             activityType: activityType,
             deadline: deadline,
@@ -32,7 +34,7 @@ const ModalGoal = ({showGoalForm, handleCloseModal}) => {
             data,
         };
         try {
-            axios(configAxios)
+            await axios(configAxios)
             .then((response) => {
                 console.log(response.data)
             });
@@ -59,13 +61,12 @@ const ModalGoal = ({showGoalForm, handleCloseModal}) => {
         setDistance(e.target.value);
       }
     
-
-      const handleSave = (e) => {
+      const handleSave = async (e) => {
         e.preventDefault();
         if (activityType === "" || duration === ""){
           alert("Please check form")
         }else {
-          createGoal();
+          await createGoal();
           handleCloseModal();
         } 
       }
@@ -80,13 +81,13 @@ const ModalGoal = ({showGoalForm, handleCloseModal}) => {
               <div className="title-activities">
                 <h5>Choose Activity</h5>
               </div>
-                <select name="activities" id="activities" onChange={handleSelect}>
+                <select name="activities" className="activities" onChange={handleSelect} value={activityType}>
                   <option value="">Please Select</option>
-                  <option value="jogging">Jogging</option>
-                  <option value="abs">Abs</option>
-                  <option value="yoga">Yoga</option>
-                  <option value="pilates">Pilates</option>
-                  <option value="zumba">Zumba</option>
+                  {
+                    activityList.map(ac => {
+                        return <option key={ac} value={ac}>{ac}</option>
+                    })
+                  }
                 </select>
               <div className="dead-line">
                 <div className="title-dead-line">
@@ -115,7 +116,7 @@ const ModalGoal = ({showGoalForm, handleCloseModal}) => {
                   Create
                 </Button>
                 <Button variant="secondary" onClick={handleCloseModal} style={{backgroundColor:"#FF4878", border:"none"}}>
-                  Cancle
+                  Cancel
                 </Button>
               </Modal.Footer>
             </form>

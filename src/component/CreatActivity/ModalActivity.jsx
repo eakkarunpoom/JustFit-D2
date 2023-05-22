@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import config from "../../config";
 import axios from "axios";
 import './ModalActivity.css';
+import activityList from "../../data/activity-type";
+
 
 const ModalActivity = ({showActivityForm, handleClose}) => {
 
@@ -44,6 +46,7 @@ const ModalActivity = ({showActivityForm, handleClose}) => {
         console.log(error);
     }
   }
+
   const handleSelect = (e) => {
     console.log(e.target.value)
     setActivityType(e.target.value);
@@ -79,6 +82,7 @@ const ModalActivity = ({showActivityForm, handleClose}) => {
       handleClose();
     } 
   }
+
     return (
       <Modal show={showActivityForm} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -89,14 +93,14 @@ const ModalActivity = ({showActivityForm, handleClose}) => {
               <div className="title-activities">
                 <h5>Choose Activity</h5>
               </div>
-                <select name="activities" id="activities" onChange={handleSelect}>
-                  <option value="">Please Select</option>
-                  <option value="jogging">Jogging</option>
-                  <option value="abs">Abs</option>
-                  <option value="yoga">Yoga</option>
-                  <option value="pilates">Pilates</option>
-                  <option value="zumba">Zumba</option>
-                </select>
+              <select name="activities" className="activities" onChange={handleSelect} value={activityType}>
+                <option value="">Please Select</option>
+                {
+                  activityList.map(ac => {
+                      return <option key={ac} value={ac}>{ac}</option>
+                  })
+                }
+              </select>
               <div className="title-activities">
                 <h5>Habit Title</h5>
               </div>
@@ -132,7 +136,7 @@ const ModalActivity = ({showActivityForm, handleClose}) => {
                   Create
                 </Button>
                 <Button variant="secondary" onClick={handleClose} style={{backgroundColor:"#FF4878", border:"none"}}>
-                  Cancle
+                  Cancel
                 </Button>
               </Modal.Footer>
             </form>
