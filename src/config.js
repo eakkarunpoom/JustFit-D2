@@ -1,5 +1,5 @@
 const config = {
-    serverUrl: "http://localhost:8080"
+    serverUrl: "https://justfit-d2.onrender.com"
 }
 
 export default config;
