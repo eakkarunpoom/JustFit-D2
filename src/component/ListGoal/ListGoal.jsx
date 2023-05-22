@@ -75,7 +75,7 @@ const ListGoal = ({showGoalForm,getGoal,goal}) => {
                         <div className="image-goal">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5w6Knvs6OaZ9wkKlCggZXHLXIO9XRkQ4YKiPBF7dMqo6tv-l" alt="running"/>
                             <div className="deadline">
-                                End in: {calDate(item)}
+                                End in: {calDate(item)} day
                             </div>
                         </div>
                         <div className="mid-content">
