@@ -7,8 +7,7 @@ import jogging from "../../images/jogging.png"
 import yoga from "../../images/yoga.png"
 import abs from "../../images/waist.png"
 import pilates from "../../images/pilates.png"
-import lotus from "../../images/lotus.png"
-
+import zumba from "../../images/zumba.png"
 
 
 const ListGoal = ({showGoalForm,getGoal,goal}) => {
@@ -94,7 +93,7 @@ const ListGoal = ({showGoalForm,getGoal,goal}) => {
                                 item.activityType === "Pilates" ? <img src={pilates} alt="pilates" /> : null
                             }
                             {
-                                item.activityType === "Zumba" ? <img src={lotus} alt="lotus" /> : null
+                                item.activityType === "Zumba" ? <img src={zumba} alt="lotus" /> : null
                             }
                             <div className="deadline">
                                 End in: {calDate(item)} day

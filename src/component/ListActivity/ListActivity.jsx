@@ -8,7 +8,7 @@ import jogging from "../../images/jogging.png"
 import yoga from "../../images/yoga.png"
 import abs from "../../images/waist.png"
 import pilates from "../../images/pilates.png"
-import lotus from "../../images/lotus.png"
+import zumba from "../../images/zumba.png"
 
 
 const ListActivity = ({showActivityForm}) => {
@@ -79,7 +79,7 @@ const ListActivity = ({showActivityForm}) => {
                                 item.activityType === "Pilates" ? <img src={pilates} alt="pilates" /> : null
                             }
                             {
-                                item.activityType === "Zumba" ? <img src={lotus} alt="lotus" /> : null
+                                item.activityType === "Zumba" ? <img src={zumba} alt="lotus" /> : null
                             }
                         </div>
                         <div className="detail-activity-content">
