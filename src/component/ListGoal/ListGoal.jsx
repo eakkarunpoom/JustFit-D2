@@ -3,6 +3,12 @@ import axios from "axios";
 import config from "../../config";
 import DeleteGoal from "../DeleteGoal/DeleteGoal";
 import {RxCrossCircled} from "react-icons/rx";
+import jogging from "../../images/jogging.png"
+import yoga from "../../images/yoga.png"
+import abs from "../../images/waist.png"
+import pilates from "../../images/pilates.png"
+import lotus from "../../images/lotus.png"
+
 
 
 const ListGoal = ({showGoalForm,getGoal,goal}) => {
@@ -75,7 +81,21 @@ const ListGoal = ({showGoalForm,getGoal,goal}) => {
                 return (
                     <div className="goal-content" key={item._id}>
                         <div className="image-goal">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5w6Knvs6OaZ9wkKlCggZXHLXIO9XRkQ4YKiPBF7dMqo6tv-l" alt="running"/>
+                        {
+                                item.activityType === "Jogging" ? <img src={jogging} alt="running"/> : null
+                            }
+                            {
+                                item.activityType === "Yoga" ? <img src={yoga} alt="yoga" /> : null
+                            }
+                            {
+                                item.activityType === "Abs" ? <img src={abs} alt="abs" /> : null
+                            }
+                            {
+                                item.activityType === "Pilates" ? <img src={pilates} alt="pilates" /> : null
+                            }
+                            {
+                                item.activityType === "Zumba" ? <img src={lotus} alt="lotus" /> : null
+                            }
                             <div className="deadline">
                                 End in: {calDate(item)} day
                             </div>
@@ -104,7 +124,9 @@ const ListGoal = ({showGoalForm,getGoal,goal}) => {
                         {
                             item.status === 'done' ?
                             <div className="btn-goal">
-                                <button className="done">Done</button>
+                                <div style={{display:"flex", alignItems:"center"}}>
+                                    <p className="finish" style={{borderRadius:"5px",backgroundColor:"green"}}>Finish</p>
+                                </div>
                                 <div className="btn-edit-del">
                                     <button className="del" style={{color:"white"}} onClick={() => handleDeleteGoal(item)}> <RxCrossCircled style={{fontSize:"24px"}}/> </button>
                                 </div>
@@ -114,7 +136,9 @@ const ListGoal = ({showGoalForm,getGoal,goal}) => {
                         {
                             item.status === 'fail' ? 
                             <div className="btn-goal">
-                                <button className="cancle" style={{margin:"0px 12px"}}>Cancel</button>
+                                <div style={{display:"flex", alignItems:"center"}}>
+                                    <p className="failed" style={{borderRadius:"5px",backgroundColor:"red"}}>Failed</p>
+                                </div>
                                 <div className="btn-edit-del">
                                     <button className="del" style={{color:"white"}} onClick={() => handleDeleteGoal(item)}> <RxCrossCircled style={{fontSize:"24px"}}/> </button>
                                 </div>

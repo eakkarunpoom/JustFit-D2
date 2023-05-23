@@ -12,7 +12,7 @@ const Layout = ({children}) => {
           if (userFirebase) {
             const uid = userFirebase.uid;
             setUser(userFirebase)
-            console.log('userFirebase', userFirebase)
+            // console.log('userFirebase', userFirebase)
             localStorage.setItem('xAccessToken', userFirebase.accessToken);
             if (userFirebase.photoURL) {
               localStorage.setItem('photoURL', userFirebase.photoURL);

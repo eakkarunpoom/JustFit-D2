@@ -5,7 +5,7 @@ import config from "../../config";
 import axios from "axios";
 import genderList from "../../data/genderList";
 
-const EditProfile = ({showEditModal, handleCloseModal,name,gender,age,weight,height}) => {
+const EditProfile = ({showEditModal, handleCloseModal,name,gender,age,weight,height,photoUrl}) => {
     const [nameUser, setNameUser] = useState(name);
     const [genderUser, setGenderUser] = useState(gender);
     const [ageUser, setAgeUser] = useState(age);
@@ -77,11 +77,10 @@ const EditProfile = ({showEditModal, handleCloseModal,name,gender,age,weight,hei
                 </div>
                 <form onSubmit={handlesave} className="form-edit">
                     <div className="image-edit-user">
-                        <img src="https://img.freepik.com/premium-vector/man-is-showing-gesture-okay-ok-cartoon-style_165429-877.jpg?w=2000" alt="user" />
+                    {
+                        photoUrl && <img src={photoUrl} />
+                    }   
                         <div className="btn-edit-photo">
-                            <button>
-                                <img src="https://www.freeiconspng.com/thumbs/edit-icon-png/edit-new-icon-22.png" />
-                            </button>
                         </div>
                     </div>
                     <div className="edit-identity">

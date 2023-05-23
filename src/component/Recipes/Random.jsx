@@ -12,14 +12,14 @@ function Random() {
   }, []);
 
   const getRandom = async () => {
-    console.log(import.meta.env.VITE_APP_API_KEY);
+    // console.log(import.meta.env.VITE_APP_API_KEY);
     const api = await fetch(
       `https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_APP_API_KEY}&number=9&cuisine=korean`
     );
     const data = await api.json();
     localStorage.setItem("random", JSON.stringify(data.recipes));
     setRandom(data.recipes);
-    console.log(data.recipes);
+    // console.log(data.recipes);
   };
 
   return (

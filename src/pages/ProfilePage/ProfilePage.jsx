@@ -13,6 +13,7 @@ const ProfilePage = () => {
     const [age, setAge] = useState(0);
     const [height, setHeight] = useState(0);
     const [weight, setWeight] = useState(0);
+    const [photoUrl] = useState(localStorage.getItem('photoURL'))
 
     const getUser = () => {
         const configAxios = {
@@ -69,7 +70,9 @@ const ProfilePage = () => {
                         Current Photo
                     </div>
                     <div className="image-user-profile">
-                        <img src="https://img.freepik.com/premium-vector/man-is-showing-gesture-okay-ok-cartoon-style_165429-877.jpg?w=2000" alt="user" />
+                    {
+                        photoUrl && <img src={photoUrl} />
+                    }                    
                     </div>
                     <div className="name-profile-user">
                         <div className="identity">Name : </div> {name}
@@ -91,7 +94,7 @@ const ProfilePage = () => {
                     </div>
                 </div> 
             </div>
-            <EditProfile showEditModal={showEditModal} handleCloseModal={handleCloseModal} name={name} gender={gender} age={age} height={height} weight={weight}/>
+            <EditProfile photoUrl={photoUrl} showEditModal={showEditModal} handleCloseModal={handleCloseModal} name={name} gender={gender} age={age} height={height} weight={weight}/>
         </Layout>
     )
 }

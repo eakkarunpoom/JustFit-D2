@@ -54,7 +54,7 @@ function DashBoardPage() {
     try {
         axios(configAxios)
         .then((response) => {
-            console.log(response.data.data)
+            // console.log(response.data.data)
             if(response.data.data.length === 0 ){
                 setName('Default name')
                 setGender('Default')
@@ -110,7 +110,7 @@ function DashBoardPage() {
 
   const convertDuration = () => {
     const timeDuration = renderGoal().duration/60
-    console.log(timeDuration)
+    // console.log(timeDuration)
     const hours = Math.floor(timeDuration);
     const minutes = Math.round((timeDuration-hours) * 60);
     return hours + ":" + minutes 

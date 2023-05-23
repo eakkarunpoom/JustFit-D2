@@ -4,6 +4,11 @@ import config from "../../config";
 import UpdateActivity from "../UpdateActivity/UpdateActivity";
 import DeleteActivity from "../DeleteActivity/DeleteActivity";
 import { FiEdit} from "react-icons/fi";
+import jogging from "../../images/jogging.png"
+import yoga from "../../images/yoga.png"
+import abs from "../../images/waist.png"
+import pilates from "../../images/pilates.png"
+import lotus from "../../images/lotus.png"
 
 
 const ListActivity = ({showActivityForm}) => {
@@ -61,7 +66,21 @@ const ListActivity = ({showActivityForm}) => {
                 <div className="activity-content" key={item._id}>
                     <div className="list-activity">
                         <div className="image-activity">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG5w6Knvs6OaZ9wkKlCggZXHLXIO9XRkQ4YKiPBF7dMqo6tv-l" alt="running"/>
+                            {
+                                item.activityType === "Jogging" ? <img src={jogging} alt="running"/> : null
+                            }
+                            {
+                                item.activityType === "Yoga" ? <img src={yoga} alt="yoga" /> : null
+                            }
+                            {
+                                item.activityType === "Abs" ? <img src={abs} alt="abs" /> : null
+                            }
+                            {
+                                item.activityType === "Pilates" ? <img src={pilates} alt="pilates" /> : null
+                            }
+                            {
+                                item.activityType === "Zumba" ? <img src={lotus} alt="lotus" /> : null
+                            }
                         </div>
                         <div className="detail-activity-content">
                             <div className="habit-title">

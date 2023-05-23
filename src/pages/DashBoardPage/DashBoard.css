@@ -67,12 +67,14 @@
 
 .image-user {
     margin: 64px auto;
-    width: 80px;
-    height: 80px;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
 }
 
 .image-user img {
     width: 100%;
+    border-radius: 50%;
 }
 
 .image-user:hover {
@@ -294,4 +296,10 @@ button.cancle {
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 16px;
+}
+
+.finish , .failed {
+    color: white;
+    padding: 10px 25px;
+    margin-right: 16px;
 }

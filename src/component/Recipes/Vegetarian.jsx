@@ -16,7 +16,7 @@ function Vegetarian() {
 
     const response = await fetch(endpoint);
     const data = await response.json();
-    console.log(data.recipes);
+    // console.log(data.recipes);
     setVegetarian(data.recipes);
   };
 
