@@ -96,7 +96,9 @@ const ListGoal = ({showGoalForm,getGoal,goal}) => {
                                 item.activityType === "Zumba" ? <img src={zumba} alt="lotus" /> : null
                             }
                             <div className="deadline">
-                                End in: {calDate(item)} day
+                            {
+                                item.status === "done" ||  item.status === "fail" ? null :<p>End in: {calDate(item)} day</p>
+                            }
                             </div>
                         </div>
                         <div className="mid-content">
