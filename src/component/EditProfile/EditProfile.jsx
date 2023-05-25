@@ -33,10 +33,10 @@ const EditProfile = ({showEditModal, handleCloseModal,name,gender,age,weight,hei
       try {
           await axios(configAxios)
           .then((response) => {
-              console.log(response.data)
+            //   console.log(response.data)
           });
       } catch (error) {
-          console.log(error);
+        //   console.log(error);
       }
     }
 
